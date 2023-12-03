@@ -1,0 +1,23 @@
+Project: Realtime-chat application
+
+REQUIREMENTS:-
+1. Registration and login
+2. Profile page (Credentials, Avatar)
+3. Users of the project
+	a. Students
+	b. Professors
+	c. Super Admin
+	d. Moderators
+4. Chat Rooms page
+5. Online Status Feature
+6. Search Functionality
+7. Emoji Pickers and Reaction System
+8. Light & Dark mode
+
+TECHNOLOGIES USED:-
+1. React
+2. Tailwind
+3. Firebase (Backend-as-a-service)
+4. Node/Express 
+5. MongoDB (2Models - chatRoom, chatMessage)
+6. Socketio
