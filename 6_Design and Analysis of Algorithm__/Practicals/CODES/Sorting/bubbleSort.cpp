@@ -3,20 +3,13 @@
 
 using namespace std;
 
-void selection(int array[], int n) 
-{
-    int i, j, pos;
-    for(i=0; i<n-1; i++) {
-        pos = i;
-        for(j=i+1; j<n; j++) {
-            if(array[pos] > array[j]) {
-                pos = j;
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            // Swap if the element found is greater than the next element
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
             }
-        }
-        if(pos!=i) {
-            int c = array[i];
-            array[i] = array[pos];
-            array[pos] = c;
         }
     }
 }
@@ -46,7 +39,7 @@ int main()
 
     t1 = clock();
     
-    selection(a, n); // Pass Array in Sorting Function
+    bubbleSort(a, n); // Pass Array in Sorting Function
     
     cout << "\nArray after sort: ";
     for(i=0; i<n; i++) {

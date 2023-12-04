@@ -3,21 +3,31 @@
 
 using namespace std;
 
-void selection(int array[], int n) 
-{
-    int i, j, pos;
-    for(i=0; i<n-1; i++) {
-        pos = i;
-        for(j=i+1; j<n; j++) {
-            if(array[pos] > array[j]) {
-                pos = j;
-            }
+// Function to partition the array into two halves
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
         }
-        if(pos!=i) {
-            int c = array[i];
-            array[i] = array[pos];
-            array[pos] = c;
-        }
+    }
+
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+
+// Function to perform quicksort on the array
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        // Find the partitioning index
+        int pi = partition(arr, low, high);
+
+        // Recursively sort the elements before and after partition
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
     }
 }
 
@@ -46,7 +56,7 @@ int main()
 
     t1 = clock();
     
-    selection(a, n); // Pass Array in Sorting Function
+    quickSort(a, 0, n-1); // Pass Array in Sorting Function
     
     cout << "\nArray after sort: ";
     for(i=0; i<n; i++) {
